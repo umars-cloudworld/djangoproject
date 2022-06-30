@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<!-- <meta name="author" content="Muhammad Morshed"> -->
+
+	<title>Kedia Homes</title>
+
+	<!-- Mobile Specific Meta
+		================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Favicon -->
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" /> -->
+
+	<!-- CSS
+		================================================== -->
+	<!-- Fontawesome Icon font -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+
+	<link rel="stylesheet" href="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/themefisher-font/style.css">
+	<!-- bootstrap.min css -->
+	<link rel="stylesheet" href="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/bootstrap/dist/css/bootstrap.min.css">
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/animate-css/animate.css">
+	<!-- Magnific popup css -->
+	<link rel="stylesheet" href="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/magnific-popup/dist/magnific-popup.css">
+	<!-- Slick Carousel -->
+	<link rel="stylesheet" href="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/slick-carousel/slick/slick.css">
+	<link rel="stylesheet" href="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/slick-carousel/slick/slick-theme.css">
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="https://kediahomes.s3.us-east-2.amazonaws.com/static/css/teststyle2.css">
+	<!-- <link rel="stylesheet" href="teststyle2.css"> -->
+
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".navbar" data-offset="50">
+	<!--
+	    Start Preloader
+	    ==================================== -->
+	<div style="z-index: 99999999;" class="preloader">
+		<div class="sk-cube-grid">
+			<div class="sk-cube sk-cube1"></div>
+			<div class="sk-cube sk-cube2"></div>
+			<div class="sk-cube sk-cube3"></div>
+			<div class="sk-cube sk-cube4"></div>
+			<div class="sk-cube sk-cube5"></div>
+			<div class="sk-cube sk-cube6"></div>
+			<div class="sk-cube sk-cube7"></div>
+			<div class="sk-cube sk-cube8"></div>
+			<div class="sk-cube sk-cube9"></div>
+		</div>
+	</div>
+	<!-- End Preloader
+        ==================================== -->
+
+ <!--
+Welcome Slider
+==================================== -->
+
+<header style="background-color: #fff !important;" style="z-index: 9999999;" id="navigation" class="navbar navigation">
+	<div class="container">
+		<div class="navbar-header">
+		  <!-- responsive nav button -->
+			<button  type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span style="background: #111 !important;" class="icon-bar"></span>
+				<span style="background: #111 !important;" class="icon-bar"></span>
+				<span style="background: #111 !important;" class="icon-bar"></span>
+			</button>
+			<!-- /responsive nav button -->
+
+			<!-- logo -->
+			<a class="navbar-brand logo" href="#body">
+				<img class="img-fluid" style="height: 150px; width: auto; margin-bottom: -40px; margin-top: -30px;" src="https://kediahomes.s3.us-east-2.amazonaws.com/static/img/Kedia-logo-in-website-size+(1).png" alt="Website Logo" />
+			   
+			</a>
+		<!-- /logo -->
+	</div>
+
+	<!-- main nav -->
+	<nav style="background-color: #fff !important; z-index: 9999999;" class="collapse navbar-collapse navbar-right" role="Navigation">
+		<ul style="margin-top: 20px;" id="nav" class="nav navbar-nav navigation-menu">
+			<li><a data-scroll href="#body">Home</a></li>
+			<li><a data-scroll href="#about">About Us</a></li>	
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Villas <i class="fas fa-caret-down"></i> </a>
+				<ul style="font-size:13px" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<li class="dropdown-submenu"><a class="dropdown-item" href="/projects/kedias-the-kothi/">Kedia's THE KOTHI</a>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item" href="/projects/kedias-the-kunba/">Kedia's THE KUNBA</a>
+					</li>
+				</ul>
+			</li>
+			
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Apartments <i class="fas fa-caret-down"></i></a>
+				<ul style="font-size:13px" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					{% for apartment in request.project_config.Apartment %}
+					<li class="dropdown-submenu"><a class="dropdown-item" href="/projects/{{apartment.slug}}/"> Kedia's {{apartment.name | upper}} </a>
+						
+					</li>
+					{% endfor %}   
+				</ul>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Plots <i class="fas fa-caret-down"></i></a>
+				<ul style="font-size: 13px;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					{% for plot in request.project_config.Plots %}
+					<li class="dropdown-submenu"><a class="dropdown-item" href="/projects/{{plot.slug}}/"> Kedia's {{plot.name | upper}} </a>
+						
+						
+					</li>
+					{% endfor %}   
+				</ul>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Sold Projects <i class="fas fa-caret-down"></i></a>
+				<ul style="font-size: 13px;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="/sold_out/">Ganesh Nagar (Kardhani)</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Zone-7, Kalwad Road,<br> Approved</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Ganesh Nagar (Niwaru Road)</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-7, NIWARU ROAD,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR (SHRI GANPATI GNSS)</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6 NANGAL JAISA BOHARA, <br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR (SHRI GANPATI GNSS)</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6 NANGAL JAISA BOHARA, <br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR SITALI</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6, SITALI,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR SITALI -II</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6, BANAD ROAD, <br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR VISTAR </a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-7, GANESH NAGAR VISTAR,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR-10</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6, NANGAL JAISA BOHARA,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR-7</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6, NANGAL JAISA BOHARA,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH VATIKA</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-12, NIWARU ROAD,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR (KARDHANI)</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-7, KALWAD ROAD,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR (NIWARU ROAD)</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-7, NIWARU ROAD,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR (SHRI GANPATI GNSS)</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6 NANGAL JAISA BOHARA, <br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR (SHRI GANPATI GNSS)</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6 NANGAL JAISA BOHARA, <br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR SITALI</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6, SITALI,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR SITALI -II</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6, BANAD ROAD, <br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR VISTAR </a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-7, GANESH NAGAR VISTAR,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR-10</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6, NANGAL JAISA BOHARA,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH NAGAR-7</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-6, NANGAL JAISA BOHARA,<br> APPROVED</a></li>
+						</ul>
+					</li>
+					<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">GANESH VATIKA</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">ZONE-12, NIWARU ROAD,<br> APPROVED</a></li>
+						</ul>
+					</li>
+
+
+				</ul>
+			</li>
+			<li><a data-scroll href="#blog">Blog</a></li>
+			<li><a data-scroll href="#contact-us">Contact</a></li>
+			{% if request.user.is_authenticated %}
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{request.user.email}}</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a style="font-size:13px" class="dropdown-item" href="/kedia/profile/">My Profile</a>
+					<div class="dropdown-divider"></div>
+					<a style="font-size:13px" class="dropdown-item" href="/kedia/logout">Sign Out</a>
+				</div>
+			</li>
+			{% else %}
+			<li class="nav-item pr-2">
+				<a class="nav-link" href="/kedia/login">Login</a>
+			</li>
+			<!-- <li class="nav-item text-center book-now-button">
+				<a class="nav-link" href="/kedia/register">
+					<blink><i class="fa fa-home" aria-hidden="true"></i> Book Online</blink>
+				</a>
+			</li> -->
+			{% endif %}
+		</ul>
+	</nav>
+	<!-- /main nav -->
+
+  </div>
+</header>
+
+
+
+<a href="https://kediahomes.com/projects/kedias-the-kothi/">
+<section class="hero-area overlay" style="position: inherit !important; z-index:100; background-image: url('https://kediahomes.s3.us-east-2.amazonaws.com/static/img/b1-min.jpg');">
+	
+	<div  class="block">
+		<div style="padding-bottom: 0 !important; margin-bottom: 0;" class="">
+			
+				<img style="height: 130px !important; padding-bottom: 0 !important; margin-bottom: 0; margin-top: -400px !important;" src="https://kediahomes.s3.us-east-2.amazonaws.com/static/img/Kedia+the+kothi+logo-min.png" alt="">
+			
+	
+		<!-- <div class="book-now">
+		<a style="margin-top: 25px;" data-scroll href="https://kediahomes.com/projects/kedias-the-kothi/"  class="btn ">Book Now</a>
+	</div> -->
+
+		</div>
+		<!-- <h1>Kedia Homes</h1>
+		<p>Rajasthan's Most Trusted Real Estate Brand</p> -->
+	</div>
+</section>
+</a>
+ 
+
+<!--
+		Start About Section
+		==================================== -->
+		<section style="background-color: #fff !important;" class="bg-one about section">
+			<div class="container">
+				<div class="row">
+				
+					<!-- section title -->
+					<div class="title text-center wow fadeIn" data-wow-duration="1500ms" >
+						<h2 style="color: red;">About <span class="color">Us</span> </h2>
+						<div class="border"></div>
+					</div>
+					<!-- /section title -->
+					
+					<!-- About item -->
+					<div  class="col-md-4 text-center wow fadeInUp" data-wow-duration="500ms" >
+						<div style="background-color: rgb(209, 12, 12) !important;" class="block">							
+							<div class="icon-box">
+								<!-- <i class="tf-tools"></i> -->
+								<i class="fa fa-user-circle"></i>
+							</div>					
+							<!-- Express About Yourself -->
+							<div class="content text-center">
+								<h3 class="ddd">Who We Are?</h3>								
+								<p><strong>Shri Shiv Kumar Kedia</strong>, the founder and promoter of Kedia Homes has been a pioneering name in the construction industry since last 35+ years and this family heritage has been pursued by his dear sons.</p>
+								<a data-scroll href="#services" class="btn btn-transparent">Read More</a>
+
+							</div>
+						</div>
+					</div> 
+					<!-- End About item -->
+					
+					<!-- About item -->
+					<div class="col-md-4 text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="250ms">
+						<div style="background-color: rgb(209, 12, 12) !important;" class="block">
+							<div class="icon-box">
+								<i class="fa fa-rocket"></i>
+							</div>
+							<!-- Express About Yourself -->
+							<div class="content text-center">
+								<h3>Our Mission</h3>
+								<p>To expand & contribute significantly to building new India steadily and with integrity while delivering superior value to our customers in everything we do the India’s most valuable real estate company.</p>
+								<a data-scroll href="#services" class="btn btn-transparent">Read More</a>
+							</div>
+						</div>
+					</div> 
+					<!-- End About item -->
+					
+					<!-- About item -->					
+					<div class="col-md-4 text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms">
+						<div style="background-color: rgb(209, 12, 12) !important;" class="block kill-margin-bottom">
+							<div class="icon-box">
+								<i class="fa fa-eye"></i>
+							</div>
+							<!-- Express About Yourself -->
+							<div class="content text-center">
+								<h3>Our Vision</h3>
+								<p>To deliver world class construction through regular efforts in maintaining quality, building life tested homes, developing Modern & traditional designs and building customer relations with the highest.</p>
+								<a data-scroll href="#services" class="btn btn-transparent">Read More</a>
+							</div>
+						</div>
+					</div> 
+					<!-- End About item -->
+					
+				</div> 		<!-- End row -->
+			</div>   	<!-- End container -->
+		</section>   <!-- End section -->
+
+<section style="background-color: rgb(235, 35, 35) !important;" class="section about-2 padding-0 bg-dark" id="about">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6 padding-0 ">
+				<img style="margin-top: 70px;" class="img-responsive img-fluid"  src="https://kediahomes.s3.us-east-2.amazonaws.com/static/img/B3-min.jpg" alt="">
+			</div>
+			<div class="col-md-6">
+				<div class="content-block">
+					<h2>Rajasthan's Most Trusted Real Estate Brand</h2>
+					<p>
+
+						Kedia Homes is one of the most prominent name in the housing sector. Known for its world-class infrastructure, planned architecture, sprawling building and prime locations - our credible JDA projects have been forever happy homes of plenty in The Pink City! </p>
+					<p>We embarked on our journey of transforming dreams into realities in 1984. With our exemplary efforts, championing experience we’re grateful for having crafted one of a kind homes for you. strongly believes in keeping up with rapidly evolving technologies and using cutting-edge methods.</p>
+					<p>A team of trained professionals ensures that the design, architecture, layout and development of your forever happy homes are done to perfection!</p>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="media">
+								<div class="pull-left">
+									<i style="color: #fff !important;" class="tf-circle-compass"></i>	
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">Best Place to Live</h4>
+									<p>Each project of Kedia homes is crafted to suit all of your needs – live with your family a happy and healthy life at the the perfectly crafted place.</p>
+									<!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus consectetur dolores repellendus eos saepe</p> -->
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="media">
+								<div class="pull-left">
+									<i style="color: #fff !important;" class="tf-hotairballoon"></i>	
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">An Euphoria</h4>
+									<p> An euphoria-inducing haven That is supposed to be yours – It has a variety of amenities to deliver all of the conveniences and luxuries in one location. </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Start Services Section
+==================================== -->
+
+
+	
+
+
+
+<!-- Start Portfolio Section
+		=========================================== -->
+
+
+
+<!--
+Start Counter Section
+==================================== -->
+		
+<section id="counter" class="parallax-section bg-1 section overly">
+	<div class="container">
+		<div class="row">
+		
+			<!-- first count item -->
+			<div  class="col-md-4 col-sm-6 col-xs-12 text-center wow fadeInDown" data-wow-duration="500ms">
+				<div style="background-color: rgb(214, 18, 18);" class="counters-item">
+					<i class="tf-ion-android-happy"></i>
+					<span data-speed="3000" data-to="320">37 Years+</span>
+					<h3>Experience</h3>
+				</div>
+			</div>
+			<!-- end first count item -->
+		
+			<!-- second count item -->
+			<div class="col-md-4 col-sm-6 col-xs-12 text-center wow fadeInDown" data-wow-duration="500ms" data-wow-delay="200ms">
+				<div style="background-color: rgb(214, 18, 18);" class="counters-item">
+					<i class="tf-ion-archive"></i>
+					<span data-speed="3000" data-to="565">300+</span>
+					<h3>Projects completed</h3>
+				</div>
+			</div>
+			<!-- end second count item -->
+		
+			<!-- third count item -->
+			<div class="col-md-4 col-sm-6 col-xs-12 text-center wow fadeInDown" data-wow-duration="500ms" data-wow-delay="400ms">
+				<div style="background-color: rgb(214, 18, 18);"	 class="counters-item">
+					<i class="tf-ion-thumbsup"></i>
+					<span data-speed="3000" data-to="95">3 Lacs+</span>
+					<h3>Customers</h3>
+					
+				</div>
+			</div>
+			<!-- end third count item -->
+			
+			<!-- fourth count item -->
+			
+			<!-- end fourth count item -->
+			
+		</div> 		<!-- end row -->
+	</div>   	<!-- end container -->
+</section>   <!-- end section -->
+
+<!-- 
+Start Our Team
+=========================================== -->
+
+<section id="our-team" class="section">
+	<div class="container">
+		<div class="row">
+		
+			<!-- section title -->
+			<div class="title text-center wow fadeInUp" data-wow-duration="500ms">
+				<h2 style="color: red;">Our <span class="color">Projects</span></h2>
+				<div class="border"></div>
+			</div>
+			<!-- /section title -->
+			
+			<!-- team member -->
+			<div  class="col-md-4 col-sm-6 col-xs-12  wow fadeInDown" data-wow-duration="500ms">
+               <div class="team-member">
+					<div class="member-photo">
+						<!-- member photo -->
+						<img style="cursor: pointer;" class="img-responsive" src="https://kediahomes.s3.us-east-2.amazonaws.com/static/img/ele-1-min.jpg" alt="Meghna">
+						<!-- /member photo -->
+						
+						<!-- member social profile -->
+					
+						
+					</div>
+					
+					
+					<div style="background-color: rgb(245, 239, 239);" class="member-meta">
+						<h4 style="color: #111;"> Kedia's THE PALM</h4>
+						<p style="color: #111;" >The Palm offers you the quintessential environment to relax and soothe your mind and body. There are numerous amenities to satisfy any kind of leisure needs. From swimming pools to club house and jogging tracks, you can unwind from the fast life and rejuvenate yourself. An everyday luxury to all the residents is the core purpose behind creating this architural marvel. </p>
+
+					</div>
+					
+				   
+               </div>
+            </div>
+			<!-- end team member -->
+			
+			<!-- team member -->
+			<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="200ms">
+               <div class="team-member">
+					<div class="member-photo">
+						<!-- member photo -->
+						<img style="cursor: pointer;" class="img-responsive" src="https://kediahomes.s3.us-east-2.amazonaws.com/static/img/ele-min.png" alt="Meghna">
+						<!-- /member photo -->
+						
+						<!-- member social profile -->
+						
+						<!-- /member social profile -->
+					</div>
+					
+					<!-- member name & designation -->
+					<div style="background-color: rgb(245, 239, 239);" class="member-meta">
+						<h4 style="color: #111;">Kedia's THE OXYGEN</h4>
+						<p style="color: #111;">The Oxygen, a township meticulously outlined and created on the novel concept of a walk up apartment, with no elevators. The house has been eclectically designed. Expansive surroundings of a township with a social connection of an apartment strive to provide the best of both the worlds. Energize yourself in the crisp air amidst a plethora of trees. No other place in Jaipur allows one to experience nature as closely. </p>
+					</div>
+					<!-- /member name & designation -->
+					<!-- /about member -->
+				</div>
+            </div>
+			<!-- end team member -->
+			
+			<!-- team member -->
+			<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown" data-wow-duration="500ms" data-wow-delay="400ms">
+               <div class="team-member">
+					<div class="member-photo">
+						<!-- member photo -->
+						<img style="cursor: pointer;" style="padding-top: 15px;" class="img-responsive" src="https://kediahomes.s3.us-east-2.amazonaws.com/static/img/KH0000%2B(1)-copy-min.jpg" alt="Meghna">
+						<!-- /member photo -->
+						
+						<!-- member social profile -->
+						
+						<!-- /member social profile -->
+					</div>
+					
+					<!-- member name & designation -->
+					<div style="background-color: rgb(245, 239, 239);" class="member-meta">
+						<h4 style="color: #111;" style="margin-top: 17px;">Kedia's CORPORATE CLUB</h4>
+						<p style="color: #111;">Corporate Club, a serene space to dwell and bloom in a lush green surrounding, the entrance is tree laden on either side bringing alive the nature. G+12 building structure is design with exemplary architectural planning. We strive to deliver the most satisfactory solutions to the flat owners. Corporate club provides the perfect home to flourish and enjoy with your family at a safe and secure place.</p>
+					</div>
+					<!-- /member name & designation -->
+					<!-- /about member -->
+               </div>
+            </div>
+			<!-- end team member -->
+			
+		
+               </div>
+            </div>
+			<!-- end team member -->
+			
+		</div>  	<!-- End row -->
+	</div>   	<!-- End container -->
+</section>   <!-- End section -->
+		
+
+
+
+
+<!-- Start Blog Section =========================================== -->
+		
+<section id="blog" class="section">
+	<div class="container">
+		<div class="row">
+			<!-- section title -->
+			<div class="title text-center wow fadeInDown">
+				<h2 style="color: rgb(247, 12, 12);"> Latest <span class="color">Posts</span></h2>
+				<div class="border"></div>
+			</div>
+			<!-- /section title -->
+			<div class="clearfix">
+				<!-- single blog post -->
+				<article class="col-md-4 col-sm-6 col-xs-12 clearfix wow fadeInUp" data-wow-duration="500ms">
+					<div style="background-color: rgb(245, 239, 239);" class="post-block">
+						<div class="media-wrapper">
+							<img style="height: 300px; margin-left: 39px; padding-top: 10px;" src="https://kediahomes.s3.us-east-2.amazonaws.com/static/gallery/Palm/ele.jpg" alt="amazing caves coverimage" class="img-responsive">
+						</div>
+						<div class="content">
+							<h3 ><a style="color: #111;" href="">A Place Of Calm Living - The Palm</a></h3>
+							<p style="color: #111;">Kedia’s Hands down, the palm is the best place to go for brilliant living! We all have dreamt to live at a place that is in the most primal location of the city, yet still peaceful and close to nature.</p>
+							<a style="color: #111;" class="btn btn-transparent" href="/blog">Read more</a>
+						</div>
+					</div>						
+				</article>
+				<!-- /single blog post -->
+				
+				<!-- single blog post -->
+				<article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="200ms">
+					<div style="background-color: rgb(245, 239, 239);" class="post-block">
+						<div id="gallery-post" class="media-wrapper">
+							<div class="item">
+								<img style="height: 300px !important; margin-left: 39px; padding-top: 10px; " src="https://kediahomes.s3.us-east-2.amazonaws.com/static/img/ele-min.png" alt="blog post" class="img-responsive">
+							</div>
+							<!-- <div class="item">
+								<img src="images/blog/blog-post-3.jpg" alt="blog post" class="img-responsive">
+							</div>
+							<div class="item">
+								<img src="images/blog/blog-post-2.jpg" alt="blog post | Meghna" class="img-responsive">
+							</div> -->
+						</div>
+						
+						<div class="content">
+							<h3><a style="color: #111;" href="">A Unique Concept - The Oxygen</a></h3>
+							<p style="color: #111;">A new way of life
+								By racing to the city, we've forgotten how important it is to take a break and enjoy a few blissful moments, just for ourselves. </p>
+							<a style="color: #111;" class="btn btn-transparent" href="/blog">Read more</a>
+						</div>
+					</div>						
+				</article>
+				<!-- end single blog post -->
+				
+				<!-- single blog post -->
+				<article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="400ms">
+					<div style="background-color: rgb(245, 239, 239);" class="post-block">
+						<div class="media-wrapper">
+							<img style="padding-top: 47px; padding-left: 10px; padding-right: 10px; padding-bottom: 20px;" src="https://kediahomes.s3.us-east-2.amazonaws.com/static/img/c3-min.jpg" alt="amazing caves coverimage" class="img-responsive">
+						</div>
+						
+						<div class="content">
+							<h3  style="padding-top: 6px; "><a style="color: #111;" href="">The House Of Your Dreams In Jaipur</a></h3>
+							<p style="color: #111;">The construction of all the kedia projects are done with meticulous attention to detail. This magnificent structure provides privacy and comfort to an apartment with separate living rooms.</p>
+							<a style="color: #111;" class="btn btn-transparent" href="/blog">Read more</a>
+						</div>
+					</div>						
+				</article>
+				<!-- end single blog post -->
+			</div>
+			<div class="all-post text-center">
+				<a class="btn btn-main" href="/blog">View All Post</a>
+			</div>
+		</div> <!-- end row -->
+	</div> <!-- end container -->
+</section> <!-- end section -->
+
+<!-- Srart Contact Us
+=========================================== -->		
+<section style="background-color: red;" id="contact-us" class="contact-us section-bg">
+	<div class="container">
+		<div class="row">
+			
+			<!-- section title -->
+			<div class="title text-center wow fadeIn" data-wow-duration="500ms">
+				<h2>Get In <span style="color: #fff;" >Touch</span></h2>
+				<div style="color: #111;" class="border"></div>
+			</div>
+			<!-- /section title -->
+			
+			<!-- Contact Details -->
+			<div class="contact-info col-md-6 wow fadeInUp" data-wow-duration="500ms">
+				<h3 style="padding-bottom: 20px;">Contact Details</h3>
+				<div class="contact-details">
+					<div class="con-info clearfix">
+						<i class="tf-map-pin"></i>
+						<span>Corp. Office: Nadi Ka Phatak, Murlipura,<br> Sikar Road, Jaipur - 39</span>
+					</div>
+					<div class="con-info clearfix">
+						<i class="tf-map-pin"></i>
+						<span>Branch Office: Sanganer Airport, Airport flyover,<br> Main Tonk Road, Jaipur - 29 </span>
+					</div>
+					<div class="con-info clearfix">
+						<i class="tf-map-pin"></i>
+						<span>Branch Office: F-107, First Floor, Evershine Tower,<br> Vaishali Nagar, Jaipur - 21</span>
+					</div>
+					
+					<div class="con-info clearfix">
+						<i class="tf-ion-ios-telephone-outline"></i>
+						<span>Phone: 1800-120-2323</span>
+					</div>
+					
+					
+					
+					<div class="con-info clearfix">
+						<i class="tf-ion-ios-email-outline"></i>
+						<span>Email: info@kediahomes.com </span>
+					</div>
+				</div>
+			</div>
+			<!-- / End Contact Details -->
+				
+			<!-- Contact Form -->
+			<div class="contact-form col-md-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+				<form id="contact-form" action="javascript:sendmail()" method="post" role="form">
+				
+					<div class="form-group">
+						<input style="border-color: rgba(255, 255, 255, 0.781);" type="text" placeholder="Your Name" class="form-control" name="name" id="Name">
+					</div>
+					
+					<div class="form-group">
+						<input style="border-color: rgba(255, 255, 255, 0.781);" type="email" placeholder="Your Email" class="form-control" name="email" id="Sender">
+					</div>
+					
+					<div class="form-group">
+						<input style="border-color: rgba(255, 255, 255, 0.781);" type="text" placeholder="Phone Number" class="form-control" name="subject" id="Subject">
+					</div>
+					
+					<div class="form-group">
+						<textarea style="border-color: rgba(255, 255, 255, 0.781);" rows="6" placeholder="Message" class="form-control" name="message" id="Message"></textarea>	
+					</div>
+					
+					
+					
+					<div >
+						<input style="border-color: rgba(255, 255, 255, 0.781);" type="submit"  class="btn btn-transparent" value="Submit">
+					</div>						
+					
+				</form>
+			</div>
+			<!-- ./End Contact Form -->
+		
+		</div> <!-- end row -->
+	</div> <!-- end container -->
+	
+
+	
+</section> <!-- end section -->
+	
+
+<!-- end Contact Area
+		========================================== -->
+
+<footer style="background-color: red;" id="footer" class="bg-one">
+	<div class="container">
+		<div class="row wow fadeInUp" data-wow-duration="500ms">
+			<div class="col-lg-12">
+
+				<!-- Footer Social Links -->
+				<div  class="social-icon">
+					<ul  class="list-inline">
+						<li ><a href="https://www.facebook.com/kediahomesofficial"><i style="color: red;" class="fab fa-facebook-square"></i></a></li>
+						<li><a href="https://www.instagram.com/kediahomes_/"><i style="color: red;" class="fab fa-instagram-square"></i></a></li>
+						<li><a href="https://www.linkedin.com/company/kedia-homes/"><i style="color: red;" class="fab fa-linkedin"></i></a></li>
+						<li><a href="https://www.youtube.com/channel/UCZwSNrlfc3zt6n1jmQXFeCQ"><i style="color: red;" class="fab fa-youtube"></i></a></li>
+					</ul>
+				</div>
+				<!--/. End Footer Social Links -->
+
+				<!-- copyright -->
+			
+				<!-- /copyright -->
+
+			</div> <!-- end col lg 12 -->
+		</div> <!-- end row -->
+	</div> <!-- end container -->
+</footer> <!-- end footer -->
+	    
+		
+		
+		
+		
+		
+		
+		
+
+
+		<!-- 
+		Essential Scripts
+		=====================================-->
+		
+		<!-- Main jQuery -->
+		<script type="text/javascript" src="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/jquery/dist/jquery.min.js"></script>
+		<!-- Bootstrap 3.1 -->
+		<script type="text/javascript" src="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+		<!-- Slick Carousel -->
+		<script type="text/javascript" src="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/slick-carousel/slick/slick.min.js"></script>
+		<!-- Portfolio Filtering -->
+		<script type="text/javascript" src="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/filterzr/jquery.filterizr.min.js"></script>
+		<!-- Smooth Scroll -->
+		<script type="text/javascript" src="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+		<!-- Magnific popup -->
+		<script type="text/javascript" src="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+		<!-- Google Map API -->
+		<script type="text/javascript"  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+		<!-- Sticky Nav -->
+		<script type="text/javascript" src="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/Sticky/jquery.sticky.js"></script>
+		<!-- Number Counter Script -->
+		<script type="text/javascript" src="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/count-to/jquery.countTo.js"></script>
+		<!-- wow.min Script -->
+		<script type="text/javascript" src="https://kediahomes.s3.us-east-2.amazonaws.com/Indexfiles/plugins/wow/dist/wow.min.js"></script>
+		
+		<!-- Custom js -->
+		<script type="text/javascript" src="https://kediahomes.s3.us-east-2.amazonaws.com/static/js/testscript.js"></script>
+		
+    </body>
+
+	<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+ 
+<script>  
+
+     function sendmail(){
+    
+			var name = $('#Name').val();
+			var email = $('#Sender').val();
+			var subject = $('#Subject').val();
+      var message = $('#Message').val();
+
+			// var body = $('#body').val();
+
+			var Body='Name: '+name+'<br>Email: '+email+'<br>Contact Number: '+subject+'<br>Message: '+message;
+			//console.log(name, phone, email, message);
+
+			Email.send({
+        SecureToken:"fbf31702-bb7f-4a4e-9c1c-4ccf17ee777f",
+				To: 'esales@kediahomes.com',
+				From: "kediahomes@gmail.com",
+				Subject: "New message on contact from "+name,
+				Body: Body
+			}).then(
+				message =>{
+					//console.log (message);
+					if(message=='OK'){
+					alert('Your mail has been send. Thank you for connecting.');
+					}
+					else{
+						console.error (message);
+						alert('There is error at sending message. ')
+						
+					}
+
+				}
+			);
+
+
+
+		}
+
+
+    </script>
+ </script>
+
+</html>

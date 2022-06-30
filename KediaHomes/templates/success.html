@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Success{% endblock %}
+{% block topscript %}
+<link rel="stylesheet" href="https://kediahomes.s3.us-east-2.amazonaws.com/static/css/style.css">
+{% endblock %}
+
+{% block body %}
+<div class="container text-center" style="padding-top: 200px; padding-bottom: 200px;">
+    <h1 style="color:green">Payment Successful!</h1>
+    <div class="pt-3">
+    <h5>Go back to <a style="text-decoration: underline;" href="/">Home</a></h5>
+    </div>
+</div>
+{% endblock %}
+
+
+
+{% block script %}
+<script src="https://kediahomes.s3.us-east-2.amazonaws.com/static/js/whatsapp.js"></script>
+<script src="https://kediahomes.s3.us-east-2.amazonaws.com/static/js/jquery-1.12.1.min.js"></script>
+<script src="https://kediahomes.s3.us-east-2.amazonaws.com/static/js/contact.js"></script>
+
+<script src="https://kediahomes.s3.us-east-2.amazonaws.com/static/js/jquery.form.js" ></script>
+<script src="https://kediahomes.s3.us-east-2.amazonaws.com/static/js/jquery.validate.min.js"></script>
+{% endblock %}

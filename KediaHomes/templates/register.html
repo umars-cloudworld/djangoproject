@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block title %} Create Account {% endblock title %}
+{% block message %}
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+          {{error}}
+        </div>
+    {% endif %}
+{% endblock message %}
+{% block body %}
+
+<!-- edits class main-section-new -->
+<div class="container-fluid main-section main-section-new">
+    {% if error_message %}
+        <div class="login-error-main">
+        <div class="alert login-error">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>{{ error_message }}</strong>
+        </div>
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="offset-lg-2 col-lg-8 section-part text-center">
+            <h1 style="color: whitesmoke; font-weight: 600; font-size: 72px;">Create A New Account</h1>
+        </div>
+    </div>
+</div>
+<div class="card bg-dark ">
+    <article class="card-body mx-auto">
+        <!-- <a class="text-center" href="/">
+            <p class="text-center"><img src="{% static 'static/img/logo.png' %}" alt="logo"/></p>
+        </a> -->
+     
+
+        <form method="POST" action="/kedia/register/" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+                </div>
+                <input name="name" class="form-control" placeholder="Name" type="text">
+            </div>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                </div>
+                <input name="email" class="form-control" placeholder="Email address" type="email">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                </div>
+                <select class="custom-select" style="max-width: 120px;" name="code">
+                    <option selected="">+91</option>
+                    <option value="1">+972</option>
+                    <option value="2">+198</option>
+                    <option value="3">+701</option>
+                </select>
+                <input name="mobile" class="form-control" placeholder="Phone number" type="text">
+            </div>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input class="form-control" name="password" placeholder="Create password" type="password">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-danger btn-block" style="background-color: red;"> Create Account</button>
+            </div> <!-- form-group// -->
+            <p class="text-center" style="color: red;">Have an account? <a href="/kedia/login" style="color: whitesmoke;">Log In</a></p>
+        </form>
+    </article>
+</div> <!-- card.// -->
+
+
+{% endblock body %}

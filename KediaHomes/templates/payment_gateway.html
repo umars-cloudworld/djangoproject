@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Payment Home{% endblock %}
+{% block topscript %}
+<link rel="stylesheet" href="https://kediahomes.s3.us-east-2.amazonaws.com/static/css/style.css">
+{% endblock %}
+
+{% block body %}
+
+<div class="container pay-main" style="margin-top: 200px; margin-bottom: 60px;">
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 text-center pb-2 pt-2">
+        <h2>Book Online</h2>
+    </div>
+</div>
+<div class="row pt-2 pr-2 pl-2">
+    <p>A safe and secure platform designed to add convenience in buying your dream home. In just a few steps, you can digitally select and book your home. Select the desired unit, view the payment plan, confirm your personal details, and buy online. At any point, chat with us or call us for assistance.</p>
+</div>
+<div class="pt-2">
+<div class="row text-center">
+    <div class="col-md-12">
+        <h4>Total Amount:  2,00,000 INR</h4>
+        <hr style="width:60%">
+    </div>
+</div>
+</div>
+
+<form action="success" class="text-center border border-light p-5" method="POST">
+{% csrf_token %}
+    <script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_live_GSu749zmGMPc2s" 
+    data-amount="20000000"
+    data-currency="INR"
+    data-order_id="{{ payment.id }}"
+    data-buttontext="Pay with Razorpay"
+    data-name="Kedia Homes"
+    data-description="Rajasthan's Most Trusted Real Estate Brand "
+    data-image="https://kediahomes.s3.us-east-2.amazonaws.com/static/img/logo_edited_new.png"
+    data-prefill.name="Name"
+    data-prefill.email="email@example.com"
+    data-theme.color="#F37254"
+></script>
+<input type="hidden" custom="Hidden Element" name="hidden">
+</form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="https://kediahomes.s3.us-east-2.amazonaws.com/static/js/whatsapp.js"></script>
+<script src="https://kediahomes.s3.us-east-2.amazonaws.com/static/js/jquery-1.12.1.min.js"></script>
+<script src="https://kediahomes.s3.us-east-2.amazonaws.com/static/js/contact.js"></script>
+
+<script src="https://kediahomes.s3.us-east-2.amazonaws.com/static/js/jquery.form.js" ></script>
+<script src="https://kediahomes.s3.us-east-2.amazonaws.com/static/js/jquery.validate.min.js"></script>
+{% endblock %}

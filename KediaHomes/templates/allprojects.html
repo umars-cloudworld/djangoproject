@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+    .pagination>li.page-item>a {
+        color: red !important;
+}
+</style>
+{% endblock style %}
+{% block topscript %}
+{% endblock topscript %}
+
+{% block title %} All Project {% endblock title %}
+{% block body %}
+
+<div class="container-fluid main-section">
+    <div class="row">
+        <div class="offset-lg-2 col-lg-8 section-part text-center">
+            <h1 style="color: whitesmoke; font-weight: 600; font-size: 72px;">All Projects</h1>
+        </div>
+    </div>
+    
+</div>
+
+<div class="container my-3">
+    {% for ps in gallery %}
+    <div class="row">
+        {% for i in ps %}
+        <div class="col-md-3 mt-2">
+            <div class="card">
+                <img src="{{i.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h3 class="card-title">{{i.title}}</h3>
+                    <p class="card-text">{{i.description|safe}}</p>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    {% endfor %}
+
+    <br><br>
+    <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center my-auto">
+      {% if gallery_data.has_previous %}
+              <li class="page-item"><a class="page-link" href="/projects?page=1">First</a></li>
+        <li class="page-item"><a class="page-link" href="/projects?page={{ gallery_data.previous_page_number }}">Previous</a></li>
+      {% endif %}
+      {% for i in gallery_data.paginator.page_range %}
+          {% if gallery_data.number == i %}
+            <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="/projects?page={{i}}">{{i}}</a></li>
+          {% endif %}
+      {% endfor %}
+      {% if gallery_data.has_next %}
+            <li class="page-item"><a class="page-link" href="/projects?page={{ gallery_data.next_page_number }}">Next</a></li>
+      {% endif %}
+  </ul>
+</nav>
+</div>
+
+
+{% endblock body %}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+{% endblock script %}

@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Map</title>
+</head>
+<body>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a class="navbar-brand" href="/">
+                        <img src="{% static 'static/img/logo.png' %}" alt="logo" width="80px" height="80px"/>
+                    </a></li>
+
+    <li class="breadcrumb-item my-4"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active my-4" aria-current="page">Map</li>
+  </ol>
+</nav>
+<div  class="container my-5">
+
+    <img style="zoom: 7% !important;" src="https://kediahomes.s3.us-east-2.amazonaws.com/static/img/kothi-phase.jpg" usemap="#image-map" >
+<map name="image-map">
+    {% for map in maps %}
+        <area alt="{{map.plot_no}}" title="{{map.plot_no}}" id="{{map.plot_no}}" onclick="function_name('{{map.id}}')" href="#" coords="{{map.Coordinate}}" shape="poly">
+    {% endfor %}
+</map>
+<div id="modal">
+</div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+    function function_name(id) {
+        $.get(`/api/map/get/${id}`, function(data, status){
+            if(!data.plot_size){ data.plot_size = '-' }
+            if(!data.direction){ data.direction = '-' }
+            if(!data.dimension){ data.dimension = '-' }
+            if(!data.plc){ data.plc = '-' }
+            if(!data.plan){ data.plan = '-' }
+            if(!data.floor){ data.floor = '-' }
+            if(!data.elevation){ data.elevation = '-' }
+            if(!data.price){ data.price = '-' }
+            html = `
+                <div class="modal fade" id="Modal${data.plot_no}" tabindex="-1" role="dialog" aria-labelledby="${data.plot_no}ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="${data.plot_no}ModalLabel">Plot No. ${data.plot_no}</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col md-6">
+                                    <label for="plot_size${data.plot_no}">Plot Size:</label>
+                                    <h6 class="d-inline mx-5" id="plot_size${data.plot_no}">${data.plot_size}</h6>
+                                </div>
+                                <div class="col md-6">
+                                    <label for="direction${data.plot_no}">Direction:</label>
+                                    <h6 class="d-inline mx-5" id="direction${data.plot_no}">${data.direction}</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col md-6">
+                                    <label for="dimension${data.plot_no}">Dimension:</label>
+                                    <h6 class="d-inline mx-5" id="dimension${data.plot_no}">${data.dimension}</h6>
+                                </div>
+                                <div class="col md-6">
+                                    <label for="plc${data.plot_no}">PLC:</label>
+                                    <h6 class="d-inline mx-5" id="plc${data.plot_no}">${data.plc}</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col md-6">
+                                    <label for="plan${data.plot_no}">Plan:</label>
+                                    <h6 class="d-inline mx-5" id="plan${data.plot_no}">${data.plan}</h6>
+                                </div>
+                                <div class="col md-6">
+                                    <label for="floor${data.plot_no}">Floor:</label>
+                                    <h6 class="d-inline mx-5" id="floor${data.plot_no}">${data.floor}</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col md-6">
+                                    <label for="elevation${data.plot_no}">Elevation:</label>
+                                    <h6 class="d-inline mx-5" id="elevation${data.plot_no}">${data.elevation}</h6>
+                                </div>
+                                <div class="col md-6">
+                                    <label for="price${data.plot_no}">Price:</label>
+                                    <h6 class="d-inline mx-5" id="price${data.plot_no}">${data.price}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a href="/map/booking/${data.id}" class="btn btn-primary">Book Now</a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                `;
+                $('#modal').html(html);
+                $(`#Modal${data.plot_no}`).modal('show');
+          });
+
+    }
+</script>
+
+</body>
+</html>

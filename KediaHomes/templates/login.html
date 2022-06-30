@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% block title %} Login {% endblock title %}
+</head>
+
+<body>
+
+
+
+
+    {% block body %}
+
+
+
+
+    <div class="container-fluid pl-0 pr-0">
+        <!-- login error -->
+        {% if error %}
+        <div class="login-error-main">
+        <div class="alert login-error">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Invalid email or password!</strong>
+        </div>
+        </div>
+        {% endif %}
+        <!-- login error ends -->
+        <!-- <div class="row">
+            <div class="offset-lg-2 col-lg-8 section-part text-center">
+                <h1 style="color: whitesmoke; font-weight: 600; font-size: 72px;">Login</h1>
+            </div>
+        </div> -->
+        <div class="" style="height:430px;  background:linear-gradient(rgb(5, 5, 5), rgba(36, 32, 32, 0.801), rgba(224, 221, 221, 0.041)), url('https://kediahomes.s3.us-east-2.amazonaws.com/static/gallery/Palm/ele.jpg');">
+            <div class="text-center" style="padding-top: 230px;">
+              <h1 style="color:rgba(255, 255, 255, 0.795); font-size:53px; padding-top: 10px;">LOGIN HERE</h1>
+                
+            </div>
+          </div>
+
+    </div>
+
+    <div class="card">
+        <article class="card-body mx-auto ">
+            <!-- <a class="text-center" href="/">
+        <p class="text-center"><img src="{% static 'static/img/logo.png' %}" alt="logo" /></p>
+      </a> -->
+            <!-- <h4 class="card-title mt-3 text-center" style="color: whitesmoke;">Log In</h4>
+ -->
+
+            <form action="/kedia/login/?next={% if request.GET.next %}{{request.GET.next}}{% else %}/{% endif %}"
+                method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group input-group">
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    </div>
+
+                    <input name="email" class="form-control" placeholder="Email address" type="email">
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input class="form-control" placeholder="Password" type="password" name="password">
+                </div> <!-- form-group// -->
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger btn-block" style="background-color: red;">Log
+                        In</button>
+                </div> <!-- form-group// -->
+                <p class="text-center" style="color: red;">Create an account! <a href="/kedia/register"
+                        style="color: red; text-decoration: underline;">Register</a>
+                    & <a href="/kedia/forget-password" style="color: red; text-decoration: underline;">Forgot Password</a>
+                </p>
+
+            </form>
+        </article>
+    </div>
+    {% endblock body %}
+
+
+    {% block sript %}
+    <script src="../static/js/contact.js"></script>
+    {% endblock %}
